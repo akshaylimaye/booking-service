@@ -1,0 +1,142 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "bookingservice",
+    "version": "1.0.0",
+    "title": "Paypal API documentation"
+  },
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/akshaylimaye/BookingService/1.0.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/v1/bfs/booking": {
+      "get": {
+        "tags": [
+          "bookingservice"
+        ],
+        "summary": "get all bookings",
+        "description": "",
+        "operationId": "get all bookings",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Booking"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "bookingservice"
+        ],
+        "operationId": "getData",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Entity Json",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "saved"
+          },
+          "400": {
+            "description": "Invalid booking details",
+            "schema": {}
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Booking": {
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "example": "03/12/1995 - MM/dd/yyy"
+        },
+        "checkInTime": {
+          "type": "string",
+          "example": "1643254709 - timestamp"
+        },
+        "checkOutTime": {
+          "type": "string",
+          "example": "1643254709 - timestamp"
+        },
+        "totalPrice": {
+          "type": "integer"
+        },
+        "deposit": {
+          "type": "integer"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string",
+          "example": "Doorno:"
+        },
+        "addressLine2": {
+          "type": "string",
+          "example": "Landmarks"
+        },
+        "state": {
+          "type": "string",
+          "example": "karanataka"
+        },
+        "city": {
+          "type": "string",
+          "example": "Bangalore"
+        },
+        "pincode": {
+          "type": "integer",
+          "example": 560044
+        }
+      }
+    }
+  }
+}
