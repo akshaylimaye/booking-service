@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="1e137cf9-1b37-44c9-819b-7e97ef93c820" name="bookingserv" url="jdbc:sqlserver://localhost;databaseName=bookingserv" driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    </data-sources>
+  </component>
+</project>
